@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_garden/controller/product_controller.dart';
+import 'package:home_garden/services/remote_services.dart';
 import 'package:home_garden/view/constant.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,7 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ProductController _productController = Get.find();
+  final ProductController _productController = Get.find();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('Length' + _productController.productList.length.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,9 +54,14 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 5,
                       children: [
-                        Text("Product Name"),
-                        Text("Rs:100.00"),
-                        Image.network('src')
+                        Text(
+                          _productController.productList[index].title,
+                          overflow: TextOverflow.clip,
+                          maxLines: 1,
+                        ),
+                        Image.network(
+                            height: 100,
+                            _productController.productList[index].image)
                       ],
                     ),
                   );
