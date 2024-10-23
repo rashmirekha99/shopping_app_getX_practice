@@ -7,6 +7,8 @@ class ProductController extends GetxController {
   RxList productList = <Product>[].obs;
   RxList cartIndexList = <int>[].obs;
 
+  
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -24,5 +26,9 @@ class ProductController extends GetxController {
 
   void addToCart(int index) {
     cartIndexList.add(index);
+  }
+
+  void deleteFromCart(int index) {
+    cartIndexList.removeAt(index);
   }
 }

@@ -17,11 +17,12 @@ class MyCart extends StatelessWidget {
       ),
       body: Padding(
           padding: EdgeInsets.all(10),
-          child: ListView.builder(
+          child: Obx(() => ListView.builder(
               shrinkWrap: true,
               itemCount: _productController.cartIndexList.length,
               itemBuilder: (context, index) {
                 return Container(
+                  padding: EdgeInsets.only(bottom: 10),
                   width: MediaQuery.of(context).size.width,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(10)),
@@ -30,6 +31,7 @@ class MyCart extends StatelessWidget {
                     children: [
                       Image.network(
                           height: 60,
+                          width: 60,
                           _productController
                               .productList[
                                   _productController.cartIndexList[index]]
@@ -42,11 +44,15 @@ class MyCart extends StatelessWidget {
                               .title
                               .toString()
                               .substring(0, 10)),
-                      Icon(Icons.delete)
+                      GestureDetector(
+                          onTap: () {
+                            _productController.deleteFromCart(index);
+                          },
+                          child: Icon(Icons.delete))
                     ],
                   ),
                 );
-              })),
+              }))),
     );
   }
 }
