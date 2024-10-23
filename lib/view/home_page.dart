@@ -29,28 +29,26 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(children: [
-          Obx(
-            () => GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10),
-                itemCount: _productController.productList.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade200,
-                              offset: Offset(0, 1),
-                              blurRadius: 10,
-                              spreadRadius: 2)
-                        ]),
-                    child: Column(
+        child: Expanded(
+            child: Obx(
+          () => GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+              itemCount: _productController.productList.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade200,
+                            offset: Offset(0, 1),
+                            blurRadius: 10,
+                            spreadRadius: 2)
+                      ]),
+                  child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 5,
                       children: [
@@ -62,12 +60,10 @@ class _HomePageState extends State<HomePage> {
                         Image.network(
                             height: 100,
                             _productController.productList[index].image)
-                      ],
-                    ),
-                  );
-                }),
-          )
-        ]),
+                      ]),
+                );
+              }),
+        )),
       ),
     );
   }
