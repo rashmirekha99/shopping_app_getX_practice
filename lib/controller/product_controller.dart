@@ -4,8 +4,10 @@ import 'package:shopping_app_getx_practice/services/remote_services.dart';
 import 'package:shopping_app_getx_practice/services/remote_services.dart';
 
 class ProductController extends GetxController {
-  RxList productList = <Product>[].obs;
-  RxList cartIndexList = <int>[].obs;
+  RxList _productList = <Product>[].obs;
+  RxList _cartIndexList = <int>[].obs;
+  RxList get productList => _productList;
+  RxList get cartIndexList => _cartIndexList;
 
   
 
@@ -20,15 +22,15 @@ class ProductController extends GetxController {
     var products = await RemoteServices.fetchProducts();
     print(products);
     if (products != null) {
-      productList.value = products;
+      _productList.value = products;
     }
   }
 
   void addToCart(int index) {
-    cartIndexList.add(index);
+    _cartIndexList.add(index);
   }
 
   void deleteFromCart(int index) {
-    cartIndexList.removeAt(index);
+    _cartIndexList.removeAt(index);
   }
 }
