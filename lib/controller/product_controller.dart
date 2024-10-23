@@ -1,9 +1,12 @@
 import 'package:get/get.dart';
-import 'package:home_garden/model/product.dart';
-import 'package:home_garden/services/remote_services.dart';
+import 'package:shopping_app_getx_practice/model/product.dart';
+import 'package:shopping_app_getx_practice/services/remote_services.dart';
+import 'package:shopping_app_getx_practice/services/remote_services.dart';
 
 class ProductController extends GetxController {
   RxList productList = <Product>[].obs;
+  RxList cartIndexList = <int>[].obs;
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -17,5 +20,9 @@ class ProductController extends GetxController {
     if (products != null) {
       productList.value = products;
     }
+  }
+
+  void addToCart(int index) {
+    cartIndexList.add(index);
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_garden/controller/product_controller.dart';
-import 'package:home_garden/services/remote_services.dart';
-import 'package:home_garden/view/constant.dart';
-import 'package:home_garden/view/single_product.dart';
+import 'package:shopping_app_getx_practice/controller/product_controller.dart';
+import 'package:shopping_app_getx_practice/services/remote_services.dart';
+import 'package:shopping_app_getx_practice/view/add_to_cart.dart';
+import 'package:shopping_app_getx_practice/view/constant.dart';
+import 'package:shopping_app_getx_practice/view/single_product.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Length' + _productController.productList.length.toString());
   }
 
   @override
@@ -27,6 +27,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: kprimaryColor,
         title: Text('Shop'),
+        actions: [
+          GestureDetector(
+              onTap: () {
+                Get.to(() => MyCart());
+              },
+              child: Icon(Icons.shopping_cart))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

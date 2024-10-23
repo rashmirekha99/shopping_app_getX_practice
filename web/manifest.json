@@ -1,6 +1,6 @@
 {
-    "name": "home_garden",
-    "short_name": "home_garden",
+    "name": "shopping_app_getx_practice",
+    "short_name": "shopping_app_getx_practice",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

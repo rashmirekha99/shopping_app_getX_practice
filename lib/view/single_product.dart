@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:home_garden/controller/product_controller.dart';
-import 'package:home_garden/view/constant.dart';
+import 'package:shopping_app_getx_practice/controller/product_controller.dart';
+import 'package:shopping_app_getx_practice/view/constant.dart';
+import 'package:shopping_app_getx_practice/view/home_page.dart';
 
 class SingleProduct extends StatefulWidget {
   SingleProduct({super.key, required this.index});
@@ -42,9 +43,14 @@ class _SingleProductState extends State<SingleProduct> {
                           _productController.productList[widget.index].image)),
                   Text(
                       _productController.productList[widget.index].description),
-                  Text(_productController.productList[widget.index].description)
-                
-                
+                  ElevatedButton(
+                    onPressed: () {
+                      _productController.addToCart(widget.index);
+                      print(_productController.cartIndexList);
+                      Get.to(() => HomePage());
+                    },
+                    child: Text('Add to cart'),
+                  )
                 ],
               ),
             ),

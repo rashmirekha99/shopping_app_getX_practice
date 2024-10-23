@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
-// import 'package:home_garden/controller/tap_controller.dart';
+// import 'package:shopping_app_getx_practice/controller/tap_controller.dart';
 // import 'package:get/get.dart';
-// import 'package:home_garden/next_page.dart';
+// import 'package:shopping_app_getx_practice/next_page.dart';
 
 // class HomePages extends StatelessWidget {
 //   const HomePages({super.key});

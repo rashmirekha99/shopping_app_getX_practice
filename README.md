@@ -1,4 +1,4 @@
-# home_garden
+# shopping_app_getx_practice
 
 A new Flutter project.
 

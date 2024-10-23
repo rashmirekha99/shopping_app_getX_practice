@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
-import 'package:home_garden/controller/tap_controller.dart';
+import 'package:shopping_app_getx_practice/controller/tap_controller.dart';
 
 class NextPage extends StatefulWidget {
   const NextPage({super.key});

@@ -1,4 +1,4 @@
-import 'package:home_garden/model/product.dart';
+import 'package:shopping_app_getx_practice/model/product.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteServices {
