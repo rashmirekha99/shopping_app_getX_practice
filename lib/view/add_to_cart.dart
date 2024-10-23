@@ -13,7 +13,6 @@ class MyCart extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kprimaryColor,
         title: Text('Shop'),
-        actions: [Icon(Icons.shopping_cart)],
       ),
       body: Padding(
           padding: EdgeInsets.all(10),
