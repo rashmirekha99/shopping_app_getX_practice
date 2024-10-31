@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:shopping_app_getx_practice/init/init_controllers.dart';
-import 'package:shopping_app_getx_practice/home_pages.dart';
-import 'package:shopping_app_getx_practice/next_page.dart';
+import 'package:shopping_app_getx_practice/navigators.dart';
 import 'package:shopping_app_getx_practice/view/home_page.dart';
 
 void main() {
@@ -18,15 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: InitDep(),
+      navigatorKey: globalNavigatorkey,
       title: 'Shop App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange.shade300),
         useMaterial3: true,
       ),
       home: const HomePage(),
-      routes: {
-        '/next': (context) => NextPage(),
-      },
+      
     );
   }
 }

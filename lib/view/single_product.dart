@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopping_app_getx_practice/controller/product_controller.dart';
+import 'package:shopping_app_getx_practice/navigators.dart';
 import 'package:shopping_app_getx_practice/view/constant.dart';
 import 'package:shopping_app_getx_practice/view/home_page.dart';
 
@@ -20,6 +21,19 @@ class _SingleProductState extends State<SingleProduct> {
       appBar: AppBar(
         backgroundColor: kprimaryColor,
         title: Text('Shop'),
+        actions: [
+          GestureDetector(
+              onTap: () {
+                // Navigator.of(context).pushNamed('/');
+
+                var bar =
+                    bottomNavigationKey.currentWidget as BottomNavigationBar;
+
+                bar.onTap!(1);
+                cartNavigatorKey.currentState!.pushNamed('/');
+              },
+              child: Icon(Icons.shopping_cart))
+        ],
       ),
       body: Obx(() => SingleChildScrollView(
             child: Padding(
@@ -47,7 +61,8 @@ class _SingleProductState extends State<SingleProduct> {
                     onPressed: () {
                       _productController.addToCart(widget.index);
                       print(_productController.cartIndexList);
-                      Get.to(() => HomePage());
+                      // Get.to(() => HomePage());
+                      Navigator.of(context).pushNamed('/');
                     },
                     child: Text('Add to cart'),
                   )

@@ -13,6 +13,14 @@ class MyCart extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: kprimaryColor,
         title: Text('Shop'),
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        // actions: [
+        //   GestureDetector(
+        //       onTap: () {
+        //         Get.to(() => MyCart());
+        //       },
+        //       child: Icon(Icons.shopping_cart))
+        // ],
       ),
       body: Padding(
           padding: EdgeInsets.all(10),
