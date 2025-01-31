@@ -1,18 +1,17 @@
+import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
 import 'package:shopping_app_getx_practice/model/product.dart';
-import 'package:http/http.dart' as http;
 
-class RemoteServices {
-  static var client = http.Client();
-  static Future<List<Product>?> fetchProducts() async {
-    var response =
-        await client.get(Uri.parse('https://fakestoreapi.com/products'));
+part 'remote_services.g.dart';
 
-    if (response.statusCode == 200) {
-      var jsonString = response.body;
+class Apis {
+  static const String products = 'products';
+}
 
-      return productFromJson(jsonString);
-    } else {
-      return null;
-    }
-  }
+@RestApi(baseUrl: 'https://fakestoreapi.com/')
+abstract class RemoteServices {
+  factory RemoteServices(Dio dio, {String baseUrl}) = _RemoteServices;
+
+  @GET(Apis.products)
+  Future<List<Product>> fetchProducts();
 }

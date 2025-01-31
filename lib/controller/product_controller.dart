@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:shopping_app_getx_practice/model/product.dart';
 import 'package:shopping_app_getx_practice/services/remote_services.dart';
@@ -20,11 +21,12 @@ class ProductController extends GetxController {
   void fetchProducts() async {
     loading(true);
     try {
-      var products = await RemoteServices.fetchProducts();
+      final client =
+          RemoteServices(Dio(BaseOptions(contentType: 'application/json')));
+      var products = await client.fetchProducts();
       print(products);
-      if (products != null) {
-        _productList.value = products;
-      }
+
+      _productList.value = products;
     } finally {
       loading(false);
     }
